@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University Mess Menu & Feedback</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header
+      class="bg-gradient-to-r from-orange-500 to-orange-600 shadow-lg sticky top-0 z-50"
+    >
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="text-center md:text-left mb-4 md:mb-0">
+            <h1 class="text-3xl md:text-4xl font-bold text-white">
+              <i class="fas fa-utensils mr-3"></i>Mess Menu
+            </h1>
+            <p class="text-orange-100 text-lg mt-2">IIT(ISM) Dhanbad</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+      <!-- Mess Menu Section -->
+      <section class="mb-12">
+        <div class="flex items-center mb-6">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-800">
+            <i class="fas fa-clipboard-list text-orange-500 mr-3"></i>Weekly
+            Mess Menu
+          </h2>
+          <span
+            class="ml-auto bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full"
+          >
+            Updated: Today
+          </span>
+        </div>
+
+        <!-- Day Selector -->
+        <div class="mb-8 overflow-x-auto">
+          <button id="day"
+            class="day-btn bg-orange-500 text-white px-6 py-3 rounded-lg font-medium shadow"
+          ></button>
+        </div>
+
+        <!-- Menu Cards -->
+        <div id="menu-container"></div>
+      </section>
+
+      <!-- Feedback Section -->
+       <div class="md:grid grid-cols-2 gap-4 wrap">
+      <section class="mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+          <i class="fas fa-comment-dots text-orange-500 mr-3"></i>Day-wise Food
+          Feedback
+        </h2>
+
+        <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+          <div class="mb-6">
+            <p class="text-gray-600 mb-4">
+              Share your feedback about today's meals. Your input helps us
+              improve the mess food quality.
+            </p>
+          </div>
+
+          <form id="feedback-form" class="space-y-6">
+            <div>
+              <label class="block text-gray-700 font-medium mb-2" for="name">
+                Your Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <div>
+              <label
+                class="block text-gray-700 font-medium mb-2"
+                for="rollNumber"
+              >
+                Roll Number
+              </label>
+              <input
+                type="text"
+                id="rollNumber"
+                name="rollNumber"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition"
+                placeholder="Enter your roll number"
+              />
+            </div>
+
+            <div>
+              <label class="block text-gray-700 font-medium mb-2">
+                Rate the meal
+              </label>
+
+              <div class="flex items-center space-x-3">
+
+                <label class="flex items-center cursor-pointer">
+                  <input type="radio" name="rating" value="1" class="hidden peer" required>
+                  <span class="w-9 h-9 flex items-center justify-center rounded-full 
+                    border border-gray-300 text-gray-400 
+                    peer-checked:bg-yellow-400 peer-checked:text-white peer-checked:border-yellow-400">
+                    1
+                  </span>
+                </label>
+
+                <!-- 2 -->
+                <label class="flex items-center cursor-pointer">
+                  <input type="radio" name="rating" value="2" class="hidden peer">
+                  <span class="w-9 h-9 flex items-center justify-center rounded-full 
+                    border border-gray-300 text-gray-400 
+                    peer-checked:bg-yellow-400 peer-checked:text-white peer-checked:border-yellow-400">
+                    2
+                  </span>
+                </label>
+
+                <!-- 3 -->
+                <label class="flex items-center cursor-pointer">
+                  <input type="radio" name="rating" value="3" class="hidden peer">
+                  <span class="w-9 h-9 flex items-center justify-center rounded-full 
+                    border border-gray-300 text-gray-400 
+                    peer-checked:bg-yellow-400 peer-checked:text-white peer-checked:border-yellow-400">
+                    3
+                  </span>
+                </label>
+
+                <!-- 4 -->
+                <label class="flex items-center cursor-pointer">
+                  <input type="radio" name="rating" value="4" class="hidden peer">
+                  <span class="w-9 h-9 flex items-center justify-center rounded-full 
+                    border border-gray-300 text-gray-400 
+                    peer-checked:bg-yellow-400 peer-checked:text-white peer-checked:border-yellow-400">
+                    4
+                  </span>
+                </label>
+
+                <!-- 5 -->
+                <label class="flex items-center cursor-pointer">
+                  <input type="radio" name="rating" value="5" class="hidden peer">
+                  <span class="w-9 h-9 flex items-center justify-center rounded-full 
+                    border border-gray-300 text-gray-400 
+                    peer-checked:bg-yellow-400 peer-checked:text-white peer-checked:border-yellow-400">
+                    5
+                  </span>
+                </label>
+              </div>
+            </div>
+
+
+            <div>
+              <label
+                class="block text-gray-700 font-medium mb-2"
+                for="comments"
+              >
+                Comments / Suggestions
+              </label>
+              <textarea
+                id="comments"
+                rows="4"
+                name="comments"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition"
+                placeholder="Share your detailed feedback about the food quality, taste, variety, etc."
+              ></textarea>
+            </div>
+
+            <div>
+              <label class="block text-gray-700 font-medium mb-3">
+                Which meal would you like to give feedback for?
+              </label>
+              <div class="grid grid-cols-3 md:gap-4 gap-2">
+                <label
+                  class="flex overflow-hidden items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50"
+                >
+                  <input
+                    type="radio"
+                    name="meal"
+                    value="breakfast"
+                    class="mr-3"
+                  />
+                  <span>Breakfast</span>
+                </label>
+
+                <label
+                  class="flex overflow-hidden items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50"
+                >
+                  <input
+                    type="radio"
+                    name="meal"
+                    value="lunch"
+                    class="mr-3"
+                    checked
+                  />
+                  <span>Lunch</span>
+                </label>
+
+                <label
+                  class="flex overflow-hidden items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50"
+                >
+                  <input type="radio" name="meal" value="dinner" class="mr-3" />
+                  <span>Dinner</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <button id="save-btn"
+                type="submit"
+                class="w-full h-15 text-xl bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+              > </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="mb-12 ">
+        <div id="show-comments" class="grid overflow-y-auto max-h-[400px] gap-4 bg-white p-5 rounded-xl shadow-md">
+        </div>
+      </section>
+       </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <h3 class="text-2xl font-bold mb-2">
+              <i class="fas fa-utensils mr-2"></i>University Mess
+            </h3>
+            <p class="text-gray-400">Serving quality food since 1995</p>
+          </div>
+
+          <div class="mb-6 md:mb-0">
+            <h4 class="text-lg font-semibold mb-3">Contact Information</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-3 text-orange-500"></i>
+                <span>Central Campus, University Road</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone mr-3 text-orange-500"></i>
+                <span>+1 (555) 123-4567</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3 text-orange-500"></i>
+                <span>mess@university.edu</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-semibold mb-3">Mess Timings</h4>
+            <ul class="space-y-2 text-gray-400">
+              <li>Breakfast: 7:30 AM - 9:30 AM</li>
+              <li>Lunch: 12:30 PM - 2:30 PM</li>
+              <li>Dinner: 7:30 PM - 9:30 PM</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="mt-8 pt-6 border-t border-gray-700 text-center text-gray-400"
+        >
+          <p id="footer-date"></p>
+          <p class="mt-2">
+            Designed with <i class="fas fa-heart text-red-500"></i> for students
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="./js/helper.js"></script>
+    <script src="./js/firebase.js" type="module"></script>
+    <script type="module" src="./js/index.js"></script>
+  </body>
+</html>
