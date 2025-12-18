@@ -1,9 +1,9 @@
 
-# University Mess Menu & Feedback System
+# Jasper Hostel Mess Menu & Feedback System
 
 A web application for managing university mess menus and collecting food feedback from students.
 
-**[Web Link](https://palhariom201-coder.github.io/mess-menu/)**
+### **[Web Link](https://palhariom201-coder.github.io/mess-menu/)**
 ## Features
 
 - **Weekly Mess Menu**: Display breakfast, lunch, and dinner menus for each day
