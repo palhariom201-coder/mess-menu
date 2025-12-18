@@ -20,7 +20,6 @@ saveBtn.innerHTML = save();
 const showCommentsElement = document.getElementById('show-comments');
 showCommentsElement.innerHTML = loader();
 const comments = await showComments();
-
 showCommentsElement.innerHTML = comments;
 
 form.addEventListener("submit", async (e) => {
@@ -31,9 +30,11 @@ form.addEventListener("submit", async (e) => {
   saveBtn.innerHTML = loader();
   const res = await saveFeedback(data);
   if(!res) return;
-  console.info(res);
+  const comments = await showComments();
+  showCommentsElement.innerHTML = comments;
   saveBtn.innerHTML = save();
   e.target.reset();
 });
+
 
 
