@@ -96,8 +96,7 @@ const ratings = [
 
 export const showComments = async () => {
   const data = await fetchFeedback();
-  if(data.lenght == 0) return '<p class="text-center font-bold text-2xl">You are the first.</p>';
-  console.log(data)
+  if(data.length == 0) return `<p class="flex justify-center h-50 items-center font-bold text-2xl">No Comments right now.<br /><br /> You are the first.</p>`;
   const comments = data.map(
     (
       comment
@@ -275,3 +274,4 @@ export const messMenu = [
     ],
   },
 ];
+
