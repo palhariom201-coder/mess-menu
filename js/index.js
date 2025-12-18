@@ -30,11 +30,12 @@ form.addEventListener("submit", async (e) => {
   saveBtn.innerHTML = loader();
   const res = await saveFeedback(data);
   if(!res) return;
-  const comments = await showComments();
+  comments = [data, ...comments];
   showCommentsElement.innerHTML = comments;
   saveBtn.innerHTML = save();
   e.target.reset();
 });
+
 
 
 
